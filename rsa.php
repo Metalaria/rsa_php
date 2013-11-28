@@ -1,5 +1,4 @@
-
-$<?php
+<?php
 
 // $text = “Peter Piper picked a peck of pickled peppers”;
 // $RSA = new RSA_Handler();
