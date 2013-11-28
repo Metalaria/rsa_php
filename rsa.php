@@ -25,7 +25,7 @@ class RSA_Handler {
     function decrypt($code, $key) {
         list($q, $r) = unserialize(base64_decode($key));
         $in = explode(" ", $code);
-        $out = ";
+        $out = "";
         foreach ($in as $block) {
             if ($block) {
                 $block = $this->long_base_convert($block, 145, 10);
