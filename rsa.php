@@ -105,12 +105,12 @@ class RSA_Handler {
         do {
             $result .= chr(bcmod($num, '256'));
             $num = bcdiv($num, '256');
-        } while (bccomp($num, '0′));
+        } while (bccomp($num, 0));
         return $result;
     }
 
     function powmod($num, $pow, $mod) {
-        if (function_exists('bcpowmod’)) {
+        if (function_exists('bcpowmod')) {
 // bcpowmod is only available under PHP5
             return bcpowmod($num, $pow, $mod);
         }
