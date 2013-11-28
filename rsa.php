@@ -61,7 +61,7 @@ class RSA_Handler {
         $tostring = substr($chars, 0, $tobase);
 
         $length = strlen($numstring);
-        $result = ";
+        $result = "";
         for ($i = 0; $i < $length; $i++) {
             $number[$i] = strpos($fromstring, $numstring{$i});
         }
