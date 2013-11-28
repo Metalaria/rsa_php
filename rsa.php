@@ -101,7 +101,7 @@ class RSA_Handler {
 
     function num2txt($num) {
 //Turns the numeric representation of text (as output by txt2num) back into text
-        $result = ”;
+        $result = "";
         do {
             $result .= chr(bcmod($num, '256'));
             $num = bcdiv($num, '256');
