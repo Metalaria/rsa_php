@@ -24,8 +24,8 @@ class RSA_Handler {
 
     function decrypt($code, $key) {
         list($q, $r) = unserialize(base64_decode($key));
-        $in = explode(” “, $code);
-        $out = ”;
+        $in = explode(" ", $code);
+        $out = ";
         foreach ($in as $block) {
             if ($block) {
                 $block = $this->long_base_convert($block, 145, 10);
@@ -56,12 +56,12 @@ class RSA_Handler {
 
     function long_base_convert($numstring, $frombase, $tobase) {
 //Converts a long integer (passed as a string) to/from any base from 2 to 145
-        $chars = “0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP QRSTUVWXYZ_-+=!@#$%^*(){[}]|:,.?/`~•¤¶§Çüéâ� �àåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥ƒ áíóúñÑªº¿¬½¼¡«»¯ßµ±÷;<>“;
+        $chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOP QRSTUVWXYZ_-+=!@#$%^*(){[}]|:,.?/`~•¤¶§Çüéâ� �àåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥ƒ áíóúñÑªº¿¬½¼¡«»¯ßµ±÷;<>";
                 $fromstring = substr($chars, 0, $frombase);
         $tostring = substr($chars, 0, $tobase);
 
         $length = strlen($numstring);
-        $result = ”;
+        $result = ";
         for ($i = 0; $i < $length; $i++) {
             $number[$i] = strpos($fromstring, $numstring{$i});
         }
@@ -91,10 +91,10 @@ class RSA_Handler {
 
     function txt2num($str) {
 //Turns regular text into a number that can be manipulated by the RSA algorithm
-        $result = ’0′;
+        $result = '0';
         $n = strlen($str);
         do {
-            $result = bcadd(bcmul($result, ’256′) , ord($str{–$n}));
+            $result = bcadd(bcmul($result, '256') , ord($str{-$n}));
         } while ($n > 0);
         return $result;
     }
@@ -103,14 +103,14 @@ class RSA_Handler {
 //Turns the numeric representation of text (as output by txt2num) back into text
         $result = ”;
         do {
-            $result .= chr(bcmod($num, ’256′));
-            $num = bcdiv($num, ’256′);
-        } while (bccomp($num, ’0′));
+            $result .= chr(bcmod($num, '256'));
+            $num = bcdiv($num, '256');
+        } while (bccomp($num, '0′));
         return $result;
     }
 
     function powmod($num, $pow, $mod) {
-        if (function_exists(‘bcpowmod’)) {
+        if (function_exists('bcpowmod’)) {
 // bcpowmod is only available under PHP5
             return bcpowmod($num, $pow, $mod);
         }
